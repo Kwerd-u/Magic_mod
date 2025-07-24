@@ -1,0 +1,9 @@
+{
+  "name": "§fГримуар",
+  "landing_text": "Добро пожаловать в ваш гримуар! Здесь вы найдёте всю необходимую информацию.",
+  "book_texture": "magicmod:textures/gui/magic_book_main_menu.png",
+  "model": "magicmod:magic_book",
+  "show_progress": false,
+  "creative_tab": "magicmod:magic_tab",
+  "use_resource_pack": true
+}

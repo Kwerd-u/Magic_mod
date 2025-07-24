@@ -1,0 +1,10 @@
+[
+  {
+    "name": "blood_sacrifice",
+    "runes": ["absorption_rune", "life_rune", "recovery_rune", "durability_rune"]
+  },
+  {
+    "name": "victim_of_strength",
+    "runes": ["absorption_rune", "durability_rune", "recovery_rune", "life_rune"]
+  }
+]
