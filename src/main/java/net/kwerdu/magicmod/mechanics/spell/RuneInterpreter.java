@@ -27,8 +27,8 @@ public class RuneInterpreter {
 
             if (currentRune.has("modifier")){
                 String modifier = currentRune.get("modifier").getAsString();
-                if (modifier.equals("levelup")){ additionalLevel += runeLevel; }
-                else {modifiers.add(0, modifier);}
+                additionalLevel += runeLevel;
+                if (!modifier.equals("levelup")) {modifiers.add(0, modifier);}
             }
             else if (currentRune.has("effects")){
                 runeLevel += additionalLevel;
@@ -90,7 +90,7 @@ public class RuneInterpreter {
                     }
                 }
             }
-
+            System.out.println(Math.pow(1.3, runeLevel));
             if (status.equals("")) {
                 effect = new Effect(effectType, value);
             }

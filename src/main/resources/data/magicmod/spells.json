@@ -5,7 +5,7 @@
   },
   {
     "name": "test_spell",
-    "runes": ["absorption_rune:0", "life_rune:0"]
+    "runes": ["absorption_rune:4", "life_rune:0"]
   },
   {
     "name": "victim_of_strength",
