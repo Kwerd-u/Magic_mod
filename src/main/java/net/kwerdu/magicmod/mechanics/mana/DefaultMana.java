@@ -1,6 +1,8 @@
 package net.kwerdu.magicmod.mechanics.mana;
 
 import net.kwerdu.magicmod.network.NetworkHandler;
+import net.kwerdu.magicmod.network.handler.ManaSyncHandler;
+import net.kwerdu.magicmod.network.packet.RequestSyncManaPacket;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
@@ -60,7 +62,7 @@ public class DefaultMana implements IMana {
         // Обновляем Ману игрока
         this.currentMana = totalCurrentMana;
         this.maxMana = totalMaxMana;
-        NetworkHandler.syncMana(player);
+        Sync(player);
     }
 
     @Override
@@ -120,10 +122,11 @@ public class DefaultMana implements IMana {
 
     private void Sync(Player player){
         if (player.level().isClientSide) {
-            NetworkHandler.requestSyncMana(player);
+            RequestSyncManaPacket packet = new RequestSyncManaPacket();
+            NetworkHandler.INSTANCE.sendToServer(packet);
         }
         else {
-            NetworkHandler.syncMana(player);
+            ManaSyncHandler.syncMana(player);
         }
     }
 }

@@ -1,5 +1,6 @@
-package net.kwerdu.magicmod.network;
+package net.kwerdu.magicmod.network.packet;
 
+import net.kwerdu.magicmod.network.handler.ManaSyncHandler;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,7 +25,7 @@ public class RequestSyncManaPacket {
             ServerPlayer player = context.getSender();
             player.sendSystemMessage(Component.literal("Тут могла быть ваша реклама"));
             if (player != null) {
-                NetworkHandler.syncMana(player);
+                ManaSyncHandler.syncMana(player);
             }
         });
         context.setPacketHandled(true);

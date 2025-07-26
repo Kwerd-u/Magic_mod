@@ -1,9 +1,8 @@
-package net.kwerdu.magicmod.network;
+package net.kwerdu.magicmod.network.packet;
 
 import net.kwerdu.magicmod.mechanics.mana.ClientManaData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;

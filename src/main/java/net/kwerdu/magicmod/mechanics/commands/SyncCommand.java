@@ -1,12 +1,10 @@
 package net.kwerdu.magicmod.mechanics.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
-import net.kwerdu.magicmod.mechanics.mana.PlayerManaUtils;
-import net.kwerdu.magicmod.network.NetworkHandler;
+import net.kwerdu.magicmod.network.handler.ManaSyncHandler;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 
 public class SyncCommand {
@@ -18,7 +16,7 @@ public class SyncCommand {
                             CommandSourceStack source = context.getSource();
                             Player player = EntityArgument.getPlayer(context, "player");
 
-                            NetworkHandler.syncMana(player);
+                            ManaSyncHandler.syncMana(player);
 
                             return 1;
                         })

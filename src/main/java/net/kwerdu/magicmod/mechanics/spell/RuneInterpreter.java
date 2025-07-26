@@ -3,6 +3,7 @@ package net.kwerdu.magicmod.mechanics.spell;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.kwerdu.magicmod.mechanics.spell.Runes.Effect;
 import net.kwerdu.magicmod.mechanics.spell.Runes.RuneLoader;
 
 import java.util.ArrayList;
@@ -41,10 +42,6 @@ public class RuneInterpreter {
                 additionalLevel = 0;
             }
             i++;
-        }
-        for (Effect effect : context_sequence){
-            System.out.println(effect.effectType);
-            System.out.println(effect.value);
         }
         return context_sequence;
     }
@@ -90,7 +87,6 @@ public class RuneInterpreter {
                     }
                 }
             }
-            System.out.println(Math.pow(1.3, runeLevel));
             if (status.equals("")) {
                 effect = new Effect(effectType, value);
             }

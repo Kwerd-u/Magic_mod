@@ -13,7 +13,7 @@ public class SpellRegistry {
 
     private static List<Spell> loadSpells() {
         Gson gson = new Gson();
-        try (InputStreamReader reader = new InputStreamReader(SpellRegistry.class.getResourceAsStream("/data/magicmod/spells.json"))) {
+        try (InputStreamReader reader = new InputStreamReader(SpellRegistry.class.getResourceAsStream("/assets/magicmod/config/spells.json"))) {
             List<SpellData> spellData = gson.fromJson(reader, new TypeToken<List<SpellData>>() {}.getType());
             List<Spell> spells = new ArrayList<>();
             for (SpellData data : spellData) {

@@ -1,7 +1,10 @@
 package net.kwerdu.magicmod.network;
 
 import net.kwerdu.magicmod.mechanics.mana.PlayerManaUtils;
-import net.minecraft.client.Minecraft;
+import net.kwerdu.magicmod.network.packet.MagicCircleRenderPacket;
+import net.kwerdu.magicmod.network.packet.RequestSyncManaPacket;
+import net.kwerdu.magicmod.network.packet.SpellPacket;
+import net.kwerdu.magicmod.network.packet.SyncManaPacket;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,31 +29,7 @@ public class NetworkHandler {
         INSTANCE.registerMessage(id++, SyncManaPacket.class, SyncManaPacket::encode, SyncManaPacket::new, SyncManaPacket::handle);
         INSTANCE.registerMessage(id++, RequestSyncManaPacket.class, RequestSyncManaPacket::encode, RequestSyncManaPacket::new, RequestSyncManaPacket::handle);
         INSTANCE.registerMessage(id++, SpellPacket.class, SpellPacket::encode, SpellPacket::new, SpellPacket::handle);
-    }
-
-
-    public static void sendToClient(SyncManaPacket packet, ServerPlayer player) {
-        try {
-            INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), packet);
-        } catch (Exception e) {
-            player.sendSystemMessage(Component.literal("Ошибка при отправке пакета: " + e.getMessage()));
-            e.printStackTrace();
-        }
-    }
-
-    public static void requestSyncMana(Player player) {
-        if (player.level().isClientSide()) {
-            NetworkHandler.INSTANCE.sendToServer(new RequestSyncManaPacket());
-        }
-    }
-
-    public static void syncMana(Player player) {
-        if (!player.level().isClientSide()) {
-            int maxMana = PlayerManaUtils.getMaxMana(player);
-            int currentMana = PlayerManaUtils.getCurrentMana(player);
-
-            NetworkHandler.sendToClient(new SyncManaPacket(maxMana, currentMana), (ServerPlayer) player);
-        }
+        INSTANCE.registerMessage(id++, MagicCircleRenderPacket.class, MagicCircleRenderPacket::encode, MagicCircleRenderPacket::new, MagicCircleRenderPacket::handle);
     }
 
 
