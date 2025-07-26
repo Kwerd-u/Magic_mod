@@ -1,10 +1,14 @@
 [
   {
     "name": "blood_sacrifice",
-    "runes": ["absorption_rune", "life_rune", "recovery_rune", "durability_rune"]
+    "runes": ["absorption_rune:0", "life_rune:0", "recovery_rune:0", "durability_rune:0"]
+  },
+  {
+    "name": "test_spell",
+    "runes": ["absorption_rune:0", "life_rune:0"]
   },
   {
     "name": "victim_of_strength",
-    "runes": ["absorption_rune", "durability_rune", "recovery_rune", "life_rune"]
+    "runes": ["absorption_rune:0", "durability_rune:0", "recovery_rune:0", "life_rune:0"]
   }
 ]

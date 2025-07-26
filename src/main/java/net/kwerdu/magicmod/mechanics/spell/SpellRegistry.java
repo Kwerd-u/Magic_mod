@@ -3,24 +3,13 @@ package net.kwerdu.magicmod.mechanics.spell;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import net.kwerdu.magicmod.MagicMod;
-import net.kwerdu.magicmod.mechanics.spell.Runes.*;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SpellRegistry {
-    private static final Map<String, Rune> runeRegistry = new HashMap<>();
     private static final List<Spell> spells = new ArrayList<>();
-
-    static {
-        runeRegistry.put("absorption_rune", new AbsorptionRune());
-        runeRegistry.put("recovery_rune", new RecoveryRune());
-        runeRegistry.put("life_rune", new LifeRune());
-        runeRegistry.put("durability_rune", new DurabilityRune());
-    }
 
     private static List<Spell> loadSpells() {
         Gson gson = new Gson();
@@ -28,9 +17,9 @@ public class SpellRegistry {
             List<SpellData> spellData = gson.fromJson(reader, new TypeToken<List<SpellData>>() {}.getType());
             List<Spell> spells = new ArrayList<>();
             for (SpellData data : spellData) {
-                List<Rune> sequence = new ArrayList<>();
+                List<String> sequence = new ArrayList<>();
                 for (String runeName : data.runes) {
-                    sequence.add(runeRegistry.get(runeName));
+                    sequence.add(runeName);
                 }
                 spells.add(new Spell(data.name, sequence));
             }

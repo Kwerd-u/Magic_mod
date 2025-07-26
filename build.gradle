@@ -72,6 +72,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-84-FORGE:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-84-FORGE")
+    implementation 'com.google.code.gson:gson:2.8.9'
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

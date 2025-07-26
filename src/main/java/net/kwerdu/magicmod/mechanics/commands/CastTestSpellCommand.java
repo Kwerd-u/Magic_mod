@@ -2,14 +2,12 @@ package net.kwerdu.magicmod.mechanics.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import net.kwerdu.magicmod.mechanics.spell.Runes.Rune;
 import net.kwerdu.magicmod.mechanics.spell.Spell;
 import net.kwerdu.magicmod.mechanics.spell.SpellRegistry;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;

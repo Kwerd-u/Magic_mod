@@ -16,7 +16,7 @@ public class SpellKeyHandler {
         if (event.getKey() == CAST_KEY && event.getAction() == GLFW.GLFW_PRESS) {
             Player player = Minecraft.getInstance().player;
             if (player != null) {
-                Spell spell = SpellRegistry.getSpell("blood_sacrifice");
+                Spell spell = SpellRegistry.getSpell("test_spell");
                 if (spell != null) {
                     spell.castSpellClientSide(player);
                 }
